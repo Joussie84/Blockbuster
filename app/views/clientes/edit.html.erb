@@ -1,0 +1,17 @@
+<h1>Editar Cliente</h1>
+
+<%= form_for @cliente do |f| %>
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :pelicula_arrendada, 'Película Arrendada' %>
+    <%= f.check_box :pelicula_arrendada %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Guardar cambios' %>
+    <%= link_to 'Cancelar', clientes_path %>
+  </div>
+<% end %>

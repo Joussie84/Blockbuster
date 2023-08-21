@@ -1,0 +1,19 @@
+<h1>Nueva Película</h1>
+
+<%= form_for @pelicula do |f| %>
+  <div class="field">
+    <%= f.label :titulo %>
+    <%= f.text_field :titulo %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :cliente_id, 'Cliente' %>
+    <%= f.collection_select :cliente_id, @clientes, :id, :nombre, prompt: 'Seleccione un cliente' %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Guardar' %>
+    <%= link_to 'Cancelar', peliculas_path %>
+  </div>
+<% end %>
+

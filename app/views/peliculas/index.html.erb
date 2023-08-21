@@ -1,0 +1,29 @@
+<header>
+<h1>Películas</h1>
+<nav>
+<a href="peliculas" target="_self">Películas</a>
+<a href="clientes" target="_self">Clientes</a>
+</nav>
+<%= link_to 'Nueva Película', new_pelicula_path,class: 'btn btn-primary' %>
+</header>
+
+<table class="principal">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Cliente</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @peliculas.each do |pelicula| %>
+      <tr>
+        <td><%= pelicula.titulo %></td>
+        <td><%= pelicula.cliente.nombre if pelicula.cliente %></td>
+        <td><%= link_to 'Editar', edit_pelicula_path(pelicula) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

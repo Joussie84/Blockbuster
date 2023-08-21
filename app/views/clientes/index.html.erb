@@ -1,0 +1,36 @@
+<header>
+<h1>Listado de Clientes</h1>
+<nav>
+<a href="peliculas" target="_self">Películas</a>
+<a href="clientes" target="_self">Clientes</a>
+</nav>
+<%= link_to 'Agregar Nuevo Cliente', new_cliente_path, class: 'btn btn-primary' %>
+</header>
+
+
+<table class="principal">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Película Arrendada</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clientes.each do |cliente| %>
+      <tr>
+        <td><%= cliente.nombre %></td>
+        <td>
+          <% if cliente.peliculas.any? %>
+            Sí
+          <% else %>
+            No
+          <% end %>
+        </td>
+        <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
